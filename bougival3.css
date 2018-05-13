@@ -93,7 +93,11 @@ body{
 .idid_title{
 	background-color: navy;
 	color:white;
-	font-size:20vw;
+	font-size:10vw;
+}
+.articles_title{
+	font-family: 'Pangolin', cursive;
+	font-size:10vw;
 }
 .idid_article{
 	padding:10px;
