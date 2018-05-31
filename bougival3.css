@@ -3,7 +3,6 @@ html{
 }
 body{
 	margin:0;
-	font-family:"Arial";
 	height: 100%;
 	/*background-color: orange;*/
 }
@@ -89,6 +88,9 @@ body{
 .idid_date{
 	color:navy;
 	font-weight: bold;
+	/*line-height:40px;*/
+	/*vertical-align: middle;*/
+	padding-top: 20px;
 }
 .idid_title{
 	background-color: navy;
