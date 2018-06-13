@@ -213,6 +213,9 @@ include("nav.php");
 						setTimeout(function(){
 							$('#general_modal').modal("hide");
 						}, 1000);
+if($(this).hasClass('finish')){
+location.href='kenshin_ecg.php?id='+get_exist;
+}
 						
 					})
 					.fail(function(){
