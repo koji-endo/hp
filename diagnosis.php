@@ -275,8 +275,37 @@ bin=(bin-bin%2)/2
 
 function select_init(){
  var html=''
+$.each(bdata,function(ind,val){
+html+='<option value="'+val['id']+'">'+val['option']+'</option>';
+if(ind==10){
+html+='<option disabled="disabled">——————</option>';
+}
+}
+$('.opinion').html(html);
 }
 
+function confirm(){
+diatext='todo';
+$.ajax({
+		type: "POST",
+		url: "send/ecgods.php",
+		data: {
+			command: "diagnosis_confirm",
+			dia_text: dia_text,
+dia_code1:$('ans'),
+dia_code2:
+   
+		},
+		dataType: "json"}
+	).done(
+	function(data){
+		
+	}
+	).fail(
+	function(){
+		alert("failed");
+	}
+}
 </script>
 </body>
 </html>
