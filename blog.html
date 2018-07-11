@@ -81,6 +81,7 @@ $('.capture').on('click',function(){
   // 画像データをblob使ってurl化する(?)
   var blob = new Blob([buffer.buffer], {type: type});
   var url = window.URL.createObjectURL(blob);
+  alert(url);
 
   // blobでurl化した画像データをaタグのクリックによりDLできるようにする
   var downloader = $('#download');
