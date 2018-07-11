@@ -64,7 +64,7 @@ function draw() {
 $('.capture').on('click',function(){
   // 保存のためのaタグを用意
   alert("発火しました")
-  var paragraph = $('<a id="download" href="#", download="0.jpg" >Download</a>');
+  var paragraph = $('<img id="download" href="#", download="0.jpg" width="200" >');
   $('body').append(paragraph);
 
   // Canvasからデータを抽出
@@ -84,11 +84,11 @@ $('.capture').on('click',function(){
 
   // blobでurl化した画像データをaタグのクリックによりDLできるようにする
   var downloader = $('#download');
-  downloader.attr('href', url);
+  downloader.attr('src', url);
   downloader.attr('download', currentNum+'.png');
 
   // クリックイベントを発火させる
-  document.getElementById('download').click();
+  // document.getElementById('download').click();
 });
   </script>
 
