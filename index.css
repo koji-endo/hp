@@ -21,3 +21,9 @@ body {
   top: 10%; left: 10%;
   width: 80%; height: 80%;
 }
+.capture{
+  position: absolute;
+  top:90%;
+  width:30%;
+  left:35%;
+}
