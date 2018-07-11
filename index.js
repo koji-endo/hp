@@ -41,3 +41,33 @@ function draw() {
   ctx.putImageData(imgData, 0, 0);
   requestAnimationFrame(draw);
 }
+
+$('.capture').on('click',function(){
+  // 保存のためのaタグを用意
+  alert("発火しました")
+  var paragraph = $('<a id="download" href="#", download="0.jpg" >Download</a>');
+  $('body').append(paragraph);
+
+  // Canvasからデータを抽出
+  var type = 'image/png';
+  var canvas = document.getElementById('canvas_id');
+  var data = canvas.toDataURL(type);
+  var bin = atob(data.split(',')[1]);
+  var buffer = new Uint8Array(bin.length);
+
+  for (var i = 0; i < bin.length; i++) {
+    buffer[i] = bin.charCodeAt(i);
+  }
+
+  // 画像データをblob使ってurl化する(?)
+  var blob = new Blob([buffer.buffer], {type: type});
+  var url = window.URL.createObjectURL(blob);
+
+  // blobでurl化した画像データをaタグのクリックによりDLできるようにする
+  var downloader = $('#download');
+  downloader.attr('href', url);
+  downloader.attr('download', currentNum+'.png');
+
+  // クリックイベントを発火させる
+  document.getElementById('download').click();
+});
