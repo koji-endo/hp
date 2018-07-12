@@ -56,74 +56,23 @@
 酒大さじ1から1と2分の1 <br>
 大根3 分の一<br>
 <h2 class='azul2'>作り方</h2>
-鳥のひき肉と卵塩と酒を粘りが出るまで混ぜる。椎茸はすをくわえる。<br>
-お湯を沸かしスプーンで入れる。余りにすぎない方が美味しい。<br>
-しょうゆ塩ごま油で味をととのえる。<br>
-大根3分の1(ピーラーで削る ) <br>
-しゃぶしゃぶしましょう。<br>
-
-
-<h1 class='azul'>味噌豚</h1>
-味噌 大さじ1 <br>
-しょうゆ 大さじ1 <br>
-みりん大さじ1 <br>
-砂糖大さじ1 <br>
-ニンニクちょっとする  <br>
-ごま油大さじ2分の一<br>
-酢大さじ1すくなめ<br>
-すりごま大さじ2 <br>
-<h2 class='azul2'>作り方</h2>
 全部をまぜる<br>
 豚の薄切りに片面だけつけてフライパンで弱火でやく。焦げやすいです。
 
-
 <h1 class='azul'>鯛の冷やし茶漬け</h1>
-鯛を三枚に下ろす。
-中骨と頭を焼く。ちゃんと火を通す。
-身をスプーンでかき出す
+鯛を三枚に下ろす。<br>
+中骨と頭を焼く。ちゃんと火を通す。<br>
+身をスプーンでかき出す。<br>
 骨の部分が残るので水と生姜とネギでにこむ。出汁になる。身は塩を振って少し水を抜いてから、焼いてほお肉と混ぜてそぼろに。粗熱をとったら、ミョウガ1つと大葉3枚を刻んで加える。
 
+<h1 class='azul'>デミグラスソース</h1>
+<h2>材料</h2>
+<ul>
+	<li>酒大さじ2</li>
+	<li>醤油大さじ1</li>
+	<li>ケチャップ大さじ1</li>
+	<li>中濃ソース大さじ1/2</li>
+	<li>砂糖小さじ2</li>
+</ul>
 </div>
-<script type="text/javascript">
-	$(function(){
-
-// --------------------------------------------------------
-// 関数定義
-// --------------------------------------------------------
-function handleFileSelect(evt) {
-    var files = evt.target.files; // inputタグからFileオブジェクトを取得
-
-    // ファイル数分実行
-    for (var i = 0, f; f = files[i]; i++) {
-        if (!f.type.match('image.*')) {
-            continue;
-        }
-        var reader = new FileReader(); // ファイル読み取り用オブジェクト作成
-        // ファイルを読み時
-        reader.onload = (function(theFile) {
-            return function(e) {
-                // サムネイル用のimgタグ
-                var $html = ['<img class="photo" src="', e.target.result,'" title="', escape(theFile.name), '">'].join('');
-                // サムネイルタグを生成
-                $('output').append($html);
-            };
-        })(f);
-        // データURLにエンコードした内容を格納
-        reader.readAsDataURL(f);
-    }
-}
-// --------------------------------------------------------
-// Ready時実行
-// --------------------------------------------------------
-// File APIのサポートチェックし、ボタンを押した時に実行
-if (window.File && window.FileReader && window.FileList && window.Blob) {
-    $('#files').on('change', handleFileSelect);
-} else {
-    alert('お使いのブラウザはサポートしておりません');
-}
-
-
-});
-	</script>
-</body>
 </html>
