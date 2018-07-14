@@ -6,6 +6,23 @@ body{
 	height: 100%;
 	/*background-color: orange;*/
 }
+.container{
+	margin:0px;
+	border-left:solid 10px navy;
+	border-right:solid 10px navy;
+	min-height:100%;
+	padding:10px;
+}
+
+.azul{
+	margin:10px 0px 0px 0px;
+	border-bottom:solid 2px blue;
+}
+.azul2{
+	margin:10px 0px 0px 0px;
+	border-bottom:solid 2px lightblue;	
+}
+
 .blog_title{
 	/*float:left;*/
 	width: 100%;
