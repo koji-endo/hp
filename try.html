@@ -1,0 +1,24 @@
+<script src='https://apis.google.com/js/api.js'>
+</script>
+<script>
+gapi.load('client:auth2', ()=> {
+  gapi.client.init({
+    clientId: '1085571018871-40j63vls1kvp2n51vfm9kg9n6446bk7p.apps.googleusercontent.com',
+    scope: 'https://www.googleapis.com/auth/spreadsheets',
+    discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4']
+  })
+});
+const auth = gapi.auth2.getAuthInstance();
+auth.signIn();
+
+gapi.client.sheets.spreadsheets.values.get({
+  spreadsheetId: '1ea2ecJxXfOM6xqURBrQiRJ_oxxoRb-123hEGvQjy6k4',
+  range: 'sheet1!A1:B4' // rangeの指定
+}).then((res)=>{
+	console.log(res);
+	console.log(res.result);
+  // value is res.result.values
+});
+</script>
+<!-- LMqhln-Xj8tuIQNXMFkSaK62 -->
+<!-- https://docs.google.com/spreadsheets/d/1ea2ecJxXfOM6xqURBrQiRJ_oxxoRb-123hEGvQjy6k4/edit?usp=sharing -->
