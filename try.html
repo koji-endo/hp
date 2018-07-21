@@ -8,8 +8,8 @@ gapi.load('client:auth2', ()=> {
     discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4']
   })
 });
-const auth = gapi.auth2.getAuthInstance();
-auth.signIn();
+//const auth = gapi.auth2.getAuthInstance();
+//auth.signIn();
 
 gapi.client.sheets.spreadsheets.values.get({
   spreadsheetId: '1ea2ecJxXfOM6xqURBrQiRJ_oxxoRb-123hEGvQjy6k4',
