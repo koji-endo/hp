@@ -3,8 +3,13 @@
   <body>
     <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
     <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
+    <input type='text' id='pcode'>
+    <button onclick='makeApiCall()'>Send</button>
+
+
     <script>
     function makeApiCall() {
+      let pcode=document.getElementById('pcode').val();
       var params = {
         spreadsheetId: '1CMVTBAakL4mIHO51KGOXPx0Qp15KX7n-jZt13GP_FAs',
         range:'Sheet1',
@@ -12,7 +17,7 @@
         insertDataOption: 'INSERT_ROWS',
         resource:{
           values:[
-            ['hello','world']
+            ['helloworld',pcode]
           ],
         }
       };
@@ -54,7 +59,7 @@
 
     function updateSignInStatus(isSignedIn) {
       if (isSignedIn) {
-        makeApiCall();
+        console.log('signed in');
       }
     }
 
