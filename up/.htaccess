@@ -1,0 +1,4 @@
+AuthUserfile https://lifecareunit.com/nenaiho_movie/.htpasswd
+AuthGroupfile /dev/null
+AuthName "Please enter your ID and password"
+AuthType Basic

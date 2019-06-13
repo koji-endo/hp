@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ねないホービデオ</title>
+  </head>
+  <body>
+<style>
+video{
+  width:500px;
+}
+</style>
+<h1> ドライバー/薬の登録</h1>
+      <table>
+        <tr><td>字幕あり</td><td>字幕なし</td></tr>
+        <tr>
+          <td>
+      <video src='fin_register_sub.mp4' controls>
+          </td>
+          <td>
+      <video src='fin_register.mp4' controls>
+          </td>
+        </tr>
+      </table>
+<h1>運行管理者/ドライバーの新規登録</h1>
+      <table>
+        <tr><td>字幕あり</td><td>字幕なし</td></tr>
+        <tr>
+          <td>
+      <video src='fin_new_driver_sub.mp4' controls>
+          </td>
+          <td>
+      <video src='fin_new_driver.mp4' controls>
+          </td>
+        </tr>
+      </table>
+<h1>運行管理者/ドライバーの長欠と退職</h1>
+      <table>
+        <tr><td>字幕なし</td></tr>
+        <tr>
+          <td>
+      <video src='fin_driver_admin.mp4' controls>
+          </td>
+        </tr>
+      </table>
+<h1>運行管理者/医師への薬変更依頼PDF発行</h1>
+      <table>
+        <tr><td>字幕あり</td><td>字幕なし</td></tr>
+        <tr>
+          <td>
+      <video src='fin_pdf_sub.mp4' controls>
+          </td>
+          <td>
+      <video src='fin_pdf.mp4' controls>
+          </td>
+        </tr>
+      </table>
+<h1>運行管理者/新規運行管理者登録</h1>
+      <table>
+        <tr><td>字幕なし</td></tr>
+        <tr>
+          <td>
+      <video src='fin_new_admin.mp4' controls>
+          </td>
+        </tr>
+      </table>
+ <h1>字幕生成について</h1>
+ 字幕は以下のコマンド1で、srtファイルをassファイルにコンパイルし、assファイルの設定を一箇所替えて字幕の位置を調整してから、コマンド2で動画とコンパイルして合成しています。
+ <pre>
+ コマンド1) ffmpeg -i pdf.srt pdf.ass 
+ コマンド2) ffmpeg -i fin_pdf.mp4 -vf ass=pdf.ass fin_pdf_sub.mp4
+ </pre>
+<h2> srtファイルの例</h2>
+<pre>
+1
+00:00:05,000 --> 00:00:09,000
+ねないホーシステムの使い方について説明します。
+
+2
+00:00:09,000 --> 00:00:11,000
+まずねないホーのアイコンをタップします。
+
+3
+00:00:11,000 --> 00:00:15,000
+ドライバーさんの処方箋の登録です。
+</pre>
+<h2>assファイルの書き換え</h2>
+最後の50という数字が字幕の高さで、デフォルト値は10なのを50に上げています。
+<pre>
+~~~~~~~~~~~~~~~~~~~
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,16,&Hffffff,&Hffffff,&H0,&H0,0,0,0,0,100,100,0,0,1,1,0,2,10,10,50,0
+~~~~~~~~~~~~~~~~~~~
+</pre>
+<h1>タイトルについて</h1>
+1200x900のpngファイルを作成し、(Inkscapeでsvgから変換)以下のコマンドでmp4ファイルに変えます。bashのfor文を使用して同じ処理を複数のPNGファイルに行い、複数のmp4ファイルを生成しています。doからdoneの手前のセミコロンまでがfor文の中身です。-f lavfi -i aevalsrc=0 は無音のオーディオトラックを付け足すためにやっていて、これがないとうまく結合できません。-t 5で5秒に設定しています。
+<pre>
+ for file in ./*.png; do ffmpeg -loop 1 -r 30000/1001 -i ${file} -f lavfi -i aevalsrc=0 -t 5 ${file//png/mp4};done
+</pre>
+そのファイルを次のコマンドで合体します。
+<pre>
+ffmpeg -i svgs/new_driver.mp4 -i new_driver/crop_new_driver.mp4 -filter_complex "concat=n=2:v=1:a=1" fin_new_driver.mp4
+</pre>
+<h1>回転とクロップ</h1>
+ビデオの世界ではどうもトリミングは時間的なものを指し、画像のトリミング(空間的なもの)はクロップというようです。次のコマンドで回転とクロップを行っています。$1が入力ファイル$2が中間ファイル$3が最終出力ファイルです。
+<pre>
+ffmpeg -i $1 -vf transpose=1 $2
+ffmpeg -i $2 -vf crop=1200:900:691:58 $3
+rm $r2
+</pre>
+<h1> wgetコマンドを用いたダウンロード</h1>
+<pre>
+wget URL --http-user="" --http-password="PASSWORD"
+</pre>
+でダウンロードできます。
+<h1>全体ダウンロードリンク</h1>
+<a href='./nenaiho_movie.zip'>ここからダウンロード(67Mb)</a>
+</body>
+</html>

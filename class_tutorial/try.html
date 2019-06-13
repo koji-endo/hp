@@ -1,0 +1,26 @@
+<script>
+let func=function(x){return x**2;};
+// first order (1次近似)
+function integrate_fo(func,a,b,N){
+  let sum=0
+  let delta_x=(b-a)/N
+  for(let i=0;i<N;i++){
+    let x=a+delta_x*i;
+    sum+=func(x)*delta_x
+  }
+  return sum;
+}
+// second order (2次近似)
+function integrate_so(func,a,b,N){
+  let sum=0
+  let delta_x=(b-a)/N
+  for(let i=0;i<N;i++){
+    let x=a+delta_x*i;
+    sum+=(func(x)+func(x+delta_x))*delta_x/2
+  }
+  return sum;
+}
+
+console.log('1次近似:'+integrate_fo(func,0,1,1000));
+console.log('2次近似:'+integrate_so(func,0,1,1000));
+</script>

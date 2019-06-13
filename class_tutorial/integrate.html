@@ -1,0 +1,62 @@
+<script>
+let ix={
+  begin:0,
+  end:1,
+  div_num:1000,
+  func:function(x){return x**2;},
+  integrate:function(){
+    let sum=0
+    let bin_width=(this.end-this.begin)/this.div_num
+    for(let i=0;i<this.div_num;i++){
+      let x=this.begin+bin_width*i;
+      sum+=this.func(x)*bin_width
+    }
+    return sum;
+  }
+}
+console.log(ix.integrate());
+
+class integrate{
+  //セッター
+  set ibegin(value){
+    this.begin=value;
+  }
+  set iend(value){
+    this.end=value;
+  }
+  set ifunc(func){
+    this.func=func
+  }
+  set idiv_num(value){
+    this.div_num=value
+  }
+  //メソッド
+  integrate(){
+    let sum=0
+    let bin_width=(this.end-this.begin)/this.div_num
+    for(let i=0;i<this.div_num;i++){
+      let x=this.begin+bin_width*i;
+      sum+=this.func(x)*bin_width
+    }
+    return sum;
+  }
+}
+let inte=new integrate();
+inte.ibegin=0
+inte.iend=1
+inte.ifunc=function(x){return x**2;}
+inte.idiv_num=1000
+console.log(inte.integrate());
+
+
+let func=function(x){return x**2;};
+function integrate(func,a,b,N){
+  let sum=0
+  let delta_x=(b-a)/N
+  for(let i=0;i<N;i++){
+    let x=a+delta_x*i;
+    sum+=func(x)*delta_x
+  }
+  return sum;
+}
+</script>
