@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-JP" lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<link rel="stylesheet" type="text/css" href="http://members.todai-aikido.jp/css/style.css" />
+<title>東大合気道部/赤門合気道倶楽部</title>
+</head>
+<body>
+<div class="bg">
+
+<!-- wrapper -->
+<div class="wrapper">
+
+<div style="text-align:center;">
+  <h3>AUTH FAILED</h3>
+  <br/>
+認証に失敗しました。<br/>
+ユーザー名とパスワードを確認してください。<br/>
+
+ご不明な点は <a href="mailto:support@todai-aikido.jp">ホームページ運用担当</a> までお問い合わせください。
+
+<hr>
+<center><a href="/index.html">入り口のページへ</a></center>
+</div>
+
+</div><!-- wrapper -->
+</div><!-- bg -->
+</body>
+</html>
