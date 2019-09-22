@@ -17,17 +17,73 @@
       <a-assets>
         <a-asset-item id="lassi" src="./lassi/lassi.glb"></a-asset-item>
       </a-assets>
-      
+      <!--魚卵-->
       <a-assets>
         <a-asset-item id="fish_egg" src="./fish_egg/fish_egg.glb"></a-asset-item>
       </a-assets>
+      <!--メダカ-->
       <a-assets>
         <a-asset-item id="mesh_trout" src="./goldfish/Mesh_Trout.gltf"></a-asset-item>
       </a-assets>
-
+      <!--青い魚-->
+      <a-assets>
+        <a-asset-item id="bluefish" src="./bluefish/bluefish.gltf"></a-asset-item>
+      </a-assets>
+      <!--クジラ-->
       <a-assets>
         <a-asset-item id="whale" src="./whale/Whale_01.gltf"></a-asset-item>
       </a-assets>
+
+
+
+      <a-marker preset="custom" type="pattern" url="./fish_egg/pattern-ikura_char.patt">
+        <a-entity
+          gltf-model="#fish_egg"
+          play-all-model-animations=""
+          position="0 0 0"
+          rotation="90 0 -10"
+          scale="0.1 0.1 0.1"
+          visible="true"
+          >
+        </a-entity>
+      </a-marker>
+      <a-marker preset="custom" type="pattern" url="./bluefish/pattern-fish_char.patt">
+        <a-entity
+          gltf-model="#bluefish"
+          play-all-model-animations=""
+          position="0 0 0"
+          rotation="270 0 0"
+          scale="0.1 0.1 0.1"
+          visible="true"
+          >
+        </a-entity>
+      </a-marker>
+
+      <a-marker preset="custom" type="pattern" url="./goldfish/pattern-young_fish_char.patt">
+        <a-entity
+          gltf-model="#mesh_trout"
+          play-all-model-animations=""
+          position="0 0 0"
+          rotation="270 0 0"
+          scale="0.1 0.1 0.1"
+          visible="true"
+          >
+        </a-entity>
+      </a-marker>
+
+
+      <a-marker preset="custom" type="pattern" url="./whale/pattern-kujira_char.patt">
+        <a-entity
+          gltf-model="#whale"
+          play-all-model-animations=""
+          position="0 0 0"
+          rotation="90 0 -10"
+          scale="0.1 0.1 0.1"
+          visible="true"
+          >
+        </a-entity>
+      </a-marker>
+
       <a-marker preset="custom" type="pattern" url="./hota/pattern-hota.patt">
 
         <a-text
@@ -36,60 +92,61 @@
           align="center"
           rotation="-90 0 0"
           color="#7993ff"
-        >
+          >
         </a-text>
-        <a-entity
-          gltf-model="#hota"
-          play-all-model-animations=""
-          position="0 0 0"
-          rotation="0 0 -10"
-          scale="0.1 0.1 0.1"
-          visible="true"
-        >
-        </a-entity>
+          <a-entity
+            gltf-model="#hota"
+            play-all-model-animations=""
+            position="0 0 0"
+            rotation="0 0 -10"
+            scale="0.1 0.1 0.1"
+            visible="true"
+            >
+          </a-entity>
       </a-marker>
       <a-marker preset="custom" type="pattern" url="./dolphin/pattern-iruka.patt">
-        
+
         <a-text
           value="I'm Dolphin!\n Aloha!"
           position="0 0 0"
           align="center"
           rotation="90 0 0"
           color="#7993ff"
-        >
+          >
         </a-text>
-        <a-entity
-          gltf-model="#dolphin"
-          play-all-model-animations=""
-          position="0 0.5 2"
-          rotation="0 0 0"
-          scale="0.1 0.1 0.1"
-          visible="true"
-        >
-        </a-entity>
+          <a-entity
+            gltf-model="#dolphin"
+            play-all-model-animations=""
+            position="0 0.5 2"
+            rotation="0 0 0"
+            scale="0.1 0.1 0.1"
+            visible="true"
+            >
+          </a-entity>
       </a-marker>
 
       <a-marker preset="custom" type="pattern" url="./lassi/pattern-lassi_char.patt">
-      <!-- </a&#45;marker> -->
-      <!-- <a&#45;marker preset="custom" type="pattern" url="./my&#45;icon&#45;marker.patt"> -->
+        <!-- </a&#45;marker> -->
+        <!-- <a&#45;marker preset="custom" type="pattern" url="./my&#45;icon&#45;marker.patt"> -->
         <a-text
           value="I'm Lassi!\n Hello!"
           position=" 0 0 0"
           align="center"
           rotation="0 0 0"
           color="#7993ff"
-        >
+          >
         </a-text>
-        <a-entity
-          gltf-model="#lassi"
-          play-all-model-animations=""
-          position="3.5 0 0"
-          rotation="0 0 0"
-          scale="0.2 0.2 0.2"
-          visible="true"
-        >
-        </a-entity>
+          <a-entity
+            gltf-model="#lassi"
+            play-all-model-animations=""
+            position="3.5 0 0"
+            rotation="0 0 0"
+            scale="0.2 0.2 0.2"
+            visible="true"
+            >
+          </a-entity>
       </a-marker>
+
       <a-entity camera></a-entity>
     </a-scene>
   </body>
