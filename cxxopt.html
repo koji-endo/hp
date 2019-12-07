@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>jqui</title>
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/css/uikit.min.css" />
+  </head>
+  <body>
+    <style>
+.sortChild{
+  border:solid 1px navy;
+}
+.top{
+  /*background-color:navy;*/
+  color:navy;
+
+}
+    </style>
+    <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom
+    ">
+      <h1>jqui </h1>
+      <h2><span uk-icon="icon: pencil"></span> input text (tsv) <a class="uk-form-icon uk-form-icon-flip" href="" uk-icon="icon: user"></a> </h2>
+      <textarea class="uk-textarea itext" rows="5" placeholder="input your tsv here"></textarea>
+
+      <button class="uk-button uk-button-danger input">input</button>
+      <div id="output" class="uk-flex"></div>
+      <button class="uk-button uk-button-secondary copy">copy</button>
+      <textarea id="csvout" class="uk-textarea"></textarea>
+    </div>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit-icons.min.js"></script>
+    <script>
+      let itext2d=[];
+$("#output").sortable();
+$('.itext').val(localStorage.getItem("inputText"));
+$('.input').on('click',function(){
+  localStorage.setItem("inputText",$('.itext').val());
+  let itext=$('.itext').val().split('\n');
+  if(itext[itext.length-1]==""){
+    itext.pop();
+  }
+  let fstcolnum=0;
+  fstcolnum=itext[0].split("\t").length;
+  if(itext[0].slice(-1)==="\t"){
+    fstcolnum--;
+  }
+  html="options.add_options()";
+  for(let itex of itext){
+    let itexl=itex.split("\t");
+    html+=`("${itexl[0]}","${itexl[1]}",cxxopts::value<${itexl[2]}>(${itexl[3]}))`;
+  }
+  html+=`("h,help","Print help");`
+  console.log(html);
+  $("#csvout").val(html);
+
+  let index=0;
+});
+$(".copy").on("click",function(){
+  $("#csvout").select();
+  document.execCommand("copy");
+});
+$(".input").click();
+
+
+// 参考にしたウェブサイト: - [textareaでTAB入力 - てくにかるむ // multix.jp](http://multix.jp/tab-input-textarea/)
+$("textarea").on('keydown', function(e){
+    if (e.keyCode === 9) {
+        e.preventDefault();
+        var elem = e.target;
+        var val = elem.value;
+        var pos = elem.selectionStart;
+        elem.value = val.substr(0, pos) + '\t' + val.substr(pos, val.length);
+        elem.setSelectionRange(pos + 1, pos + 1);
+    }
+});
+    </script>
+  </body>
+</html>
