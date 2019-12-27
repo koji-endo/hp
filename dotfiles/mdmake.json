@@ -1,0 +1,8 @@
+{
+  "diff2D_acc.c":"original program",
+  "./job_acc.sh.o2015025":"original stdo",
+  "./job_acc.sh.e2015025":"original stder",
+  "diff2D_acc_opt.c":"modified program",
+  "./job_acc.sh.o2015045":"modified stdo",
+  "./job_acc.sh.e2015045":"modified stder"
+}
