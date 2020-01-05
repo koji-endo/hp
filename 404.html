@@ -1,1 +1,27 @@
-404.html
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
+  <body>
+    404
+    <script>
+      let segmentCount = 1; // [2018/2/2 Added]: 変数が抜けていると指摘がありましたので，追加しました．
+      let l = window.location;
+      let port = l.port ? ":" + l.port : "";
+      console.log(
+        `${l.protocol}//${l.hostname}${port}/hp/recipe/?p=${l.pathname
+          .split("/")
+          .slice(0, 1 + segmentCount)
+          .join("/")}`
+      );
+      l.replace(
+        `${l.protocol}//${l.hostname}${port}/hp/recipe/?p=${l.pathname
+          .split("/")
+          .slice(0, 1 + segmentCount)
+          .join("/")}`
+      );
+    </script>
+  </body>
+</html>
