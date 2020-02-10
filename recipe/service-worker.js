@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.4dafd2e24e007b1031c782f060996e12.js"
+  "precache-manifest.6260f0daf6a4c17736f470283e978ade.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "fuego"});
