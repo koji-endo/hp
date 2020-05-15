@@ -43,6 +43,12 @@ window.onload = function() {
     return;
   }
 
+  ext = gl.getExtension("WEBGL_color_buffer_float");
+
+  if (ext == null) {
+    alert("webgl color buffer not supported");
+    return;
+  }
   // シェーダ用変数
   var v_shader, f_shader;
 
@@ -263,6 +269,28 @@ window.onload = function() {
     run = eve.keyCode !== 27;
   }
 
+  function hsva(h, s, v, a) {
+    if (s > 1 || v > 1 || a > 1) {
+      return;
+    }
+    var th = h % 360;
+    var i = Math.floor(th / 60);
+    var f = th / 60 - i;
+    var m = v * (1 - s);
+    var n = v * (1 - s * f);
+    var k = v * (1 - s * (1 - f));
+    var color = new Array();
+    if (!s > 0 && !s < 0) {
+      color.push(v, v, v, a);
+    } else {
+      var r = new Array(v, n, m, m, k, v);
+      var g = new Array(k, v, v, n, m, m);
+      var b = new Array(m, m, k, v, v, n);
+      color.push(r[i], g[i], b[i], a);
+    }
+    return color;
+  }
+
   // シェーダを生成する関数
   function create_shader(id) {
     // シェーダを格納する変数
@@ -381,6 +409,7 @@ window.onload = function() {
     // フレームバッファをWebGLにバインド
     gl.bindFramebuffer(gl.FRAMEBUFFER, frameBuffer);
 
+    console.log(gl.checkFramebufferStatus(gl.FRAMEBUFFER));
     // 深度バッファ用レンダーバッファの生成とバインド
     var depthRenderBuffer = gl.createRenderbuffer();
     gl.bindRenderbuffer(gl.RENDERBUFFER, depthRenderBuffer);
@@ -401,6 +430,7 @@ window.onload = function() {
       depthRenderBuffer
     );
 
+    console.log(gl.checkFramebufferStatus(gl.FRAMEBUFFER));
     // フレームバッファ用テクスチャの生成
     var fTexture = gl.createTexture();
 
@@ -434,6 +464,8 @@ window.onload = function() {
       fTexture,
       0
     );
+    console.log(gl.checkFramebufferStatus(gl.FRAMEBUFFER));
+    console.log(gl.FRAMEBUFFER_COMPLETE);
 
     // 各種オブジェクトのバインドを解除
     gl.bindTexture(gl.TEXTURE_2D, null);
