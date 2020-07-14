@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>wgld.org WebGL sample</title>
+    <script src="texture.js"text/javascript"></script>
+    <script src="../j/minMatrixb.js" type="text/javascript"></script>
+
+    <script id="vs" type="x-shader/x-vertex">
+      attribute vec3 position;
+      attribute vec4 color;
+      attribute vec2 textureCoord;
+      uniform   mat4 mvpMatrix;
+      varying   vec4 vColor;
+      varying   vec2 vTextureCoord;
+
+      void main(void){
+          vColor        = color;
+          vTextureCoord = textureCoord;
+          gl_Position   = vec4(position, 1.0);
+      }
+    </script>
+
+    <script id="fs" type="x-shader/x-fragment">
+      precision mediump float;
+
+      uniform sampler2D texture;
+      // varying vec4      vColor;
+      varying vec2      vTextureCoord;
+
+      void main(void){
+          vec4 smpColor = texture2D(texture, vTextureCoord);
+          gl_FragColor  = smpColor;
+      }
+    </script>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <button id="rewrite">rewrite</button>
+  </body>
+</html>
