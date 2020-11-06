@@ -21,6 +21,7 @@ set hidden
 set redrawtime=10000
 set cursorline
 set smartcase
+set termguicolors
 set ignorecase
 set timeout timeoutlen=1000 ttimeoutlen=50
 set wildmenu
@@ -63,6 +64,8 @@ Plug 'vim-airline/vim-airline'
 " Plug 'tpope/vim-fugitive' "gitらしい
 Plug 'tpope/vim-surround' "
 Plug 'leafgarland/typescript-vim'
+Plug 'nathanaelkane/vim-indent-guides'
+
 call plug#end()
 colorscheme molokai
 
@@ -89,6 +92,8 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gp <Plug>(coc-diagnostic-prev)
+nmap <silent> gn <Plug>(coc-diagnostic-next)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()

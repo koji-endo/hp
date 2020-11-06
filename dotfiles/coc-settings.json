@@ -1,0 +1,44 @@
+{
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "rootPatterns": [
+        ".ccls",
+        "compile_commands.json",
+        ".vim/",
+        ".git/",
+        ".hg/"
+      ],
+      "initializationOptions": {
+        "cache": {
+          "directory": "/tmp/ccls"
+        }
+      }
+    }
+  },
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "Markdown",
+    "json",
+    "cpp",
+    "c",
+    "javascript",
+    "typescript",
+    "python",
+    "vue",
+    "html",
+    "php"
+  ],
+  "phpls.enable": true,
+  "vetur.format.defaultFormatter.html": "prettier",
+  "prettier.trailingComma": "es5",
+  "prettier.eslintIntegration": true,
+  "eslint.filetypes": ["javascript", "vue"],
+  "tsserver.enableJavascript": false,
+  "html.format.enable": true,
+  "html.validate.styles": true,
+  "html.validate.scripts": true,
+  "python.pythonPath": "/home/endo/.pyenv/shims/python",
+  "python.linting.pylintArgs": ["--variable-rgx=[a-z0-9_]{1,30}$"]
+}
