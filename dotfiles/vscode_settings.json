@@ -1,0 +1,28 @@
+{
+  "[javascript]": {
+    "editor.tabSize": 2
+  },
+  "[python]": {
+    "editor.tabSize": 4
+  },
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixALl.phpcs": true
+  },
+  "vetur.format.defaultFormatter.js": "prettier-eslint",
+  "editor.formatOnSave": true,
+  "editor.detectIndentation": false,
+  "phpcs.standard": "PSR2",
+  "phpcs.executablePath": "/home/endo/.config/composer/vendor/bin/phpcs",
+  "phpcbf.executablePath": "/home/endo/.config/composer/vendor/bin/phpcbf",
+  "phpcbf.standard": "PSR2",
+  "phpcbf.onsave": true,
+  "phpcbf.debug": true,
+  "keyboard.dispatch": "code"
+}
